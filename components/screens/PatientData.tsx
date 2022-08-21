@@ -68,7 +68,7 @@ const PatientDataScreen: React.FunctionComponent<IPatientDataScreenProps> = (pro
   //TO DO: Zapis wszystkich danych i przesył do bazy po naciśnięciu przycisku FAB. 
   
   return (
-    <ScrollView keyboardDismissMode='on-drag' pagingEnabled={true} >
+    <ScrollView keyboardDismissMode='on-drag' >
       <TextInput mode='outlined' label='Imię' onChangeText={text => setFirstName(text)} value={firstName} activeOutlineColor="dodgerblue" />
       <TextInput mode='outlined' label='Nazwisko' onChangeText={text => setLastName(text)} value={lastName} activeOutlineColor="dodgerblue" />
       <View style={styles.picker}>

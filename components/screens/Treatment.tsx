@@ -1,14 +1,22 @@
+import { useIsFocused } from '@react-navigation/native';
 import React from 'react';
-import {View} from 'react-native';
-import {Title} from 'react-native-paper';
+import {ScrollView} from 'react-native';
+import {FAB, Portal} from 'react-native-paper';
+import { styles } from '../../styles/Styles';
 
-interface ITreatmentScreenProps {}
+interface ITreatmentScreenProps {
+  navigation: any,
+}
 
-const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = (props) => {
+const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({navigation}) => {
+  const isScreenFocused = useIsFocused();
+  
   return (
-    <View>
-      <Title>Treatment Screen</Title>
-    </View>
+    <ScrollView keyboardDismissMode='on-drag'>
+      <Portal>
+        <FAB icon="check" style={styles.fab} onPress={() => navigation.navigate("Przekazanie")} visible={isScreenFocused}/>
+      </Portal>
+    </ScrollView>
   );
 };
 export default TreatmentScreen;

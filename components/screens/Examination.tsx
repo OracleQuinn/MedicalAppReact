@@ -1,14 +1,22 @@
+import { useIsFocused } from '@react-navigation/native';
 import React from 'react';
-import {View} from 'react-native';
-import {Title} from 'react-native-paper';
+import {ScrollView} from 'react-native';
+import {FAB, Portal} from 'react-native-paper';
+import { styles } from '../../styles/Styles';
 
-interface IExaminationScreenProps {}
+interface IExaminationScreenProps {
+  navigation: any,
+}
 
-const ExaminationScreen: React.FunctionComponent<IExaminationScreenProps> = (props) => {
+const ExaminationScreen: React.FunctionComponent<IExaminationScreenProps> = ({navigation}) => {
+  const isScreenFocused = useIsFocused();
+  
   return (
-    <View>
-      <Title>Examination Screen</Title>
-    </View>
+    <ScrollView keyboardDismissMode='on-drag'>
+      <Portal>
+        <FAB icon="check" style={styles.fab} onPress={() => navigation.navigate("Rozpoznanie")} visible={isScreenFocused}/>
+      </Portal>
+    </ScrollView>
   );
 };
 export default ExaminationScreen;

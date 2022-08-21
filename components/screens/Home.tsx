@@ -1,14 +1,22 @@
+import { useIsFocused } from '@react-navigation/native';
 import React from 'react';
-import {View} from 'react-native';
-import {Title} from 'react-native-paper';
+import {ScrollView} from 'react-native';
+import {FAB, Portal} from 'react-native-paper';
+import { styles } from '../../styles/Styles';
 
-interface IHomeScreenProps {}
+interface IHomeScreenProps {
+  navigation: any,
+}
 
-const HomeScreen: React.FunctionComponent<IHomeScreenProps> = (props) => {
+const HomeScreen: React.FunctionComponent<IHomeScreenProps> = ({navigation}) => {
+  const isScreenFocused = useIsFocused();
+  
   return (
-    <View>
-      <Title>Home Screen</Title>
-    </View>
+    <ScrollView keyboardDismissMode='on-drag'>
+      <Portal>
+        <FAB icon="check" style={styles.fab} onPress={() => navigation.navigate("Wywiad")} visible={isScreenFocused}/>
+      </Portal>
+    </ScrollView>
   );
 };
 export default HomeScreen;
