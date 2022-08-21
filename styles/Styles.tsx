@@ -10,9 +10,12 @@ export const styles = StyleSheet.create({
   },
 
   picker: {
+    height: '10%',
     marginTop: 4,
     borderWidth: 1,
     borderColor: 'grey',
     borderRadius: 4,
+    alignContent: 'center',
+    justifyContent: 'center',
   },
 });

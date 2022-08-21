@@ -33,7 +33,6 @@ export default function App() {
               <Drawer.Screen name='Dane pacjenta' component={PatientDataScreen} options={{drawerIcon: config => <Icon size={23} name="person-outline"></Icon>}} />
             </Drawer.Navigator>
           </NavigationContainer>
-          <FAB icon="check" style={styles.fab} onPress={() => console.log('Pressed')}/>
         </Provider>
       <StatusBar style='auto' />
     </SafeAreaProvider>
