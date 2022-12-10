@@ -68,6 +68,7 @@ const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({naviga
   }
 
   console.log(selectedItems);
+  //TO DO: rozwijalna lista leków na cały ekran.
   
   return (
     <SafeAreaView>
@@ -88,6 +89,8 @@ const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({naviga
         searchInputStyle={{ color: '#CCC' }}
         submitButtonColor="dodgerblue"
         submitButtonText="Zatwierdź"
+        hideDropdown={true}
+        fixedHeight={true}
       />
       <Portal>
         <FAB icon="check" style={styles.fab} onPress={() => navigation.navigate("Przekazanie")} visible={isScreenFocused}/>
