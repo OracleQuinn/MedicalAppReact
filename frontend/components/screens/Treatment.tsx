@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import MultiSelect from 'react-native-multiple-select';
 import {FAB, Portal} from 'react-native-paper';
-import { styles } from '../../styles/Styles';
+import { styles } from '../../../styles/Styles';
 
 interface ITreatmentScreenProps {
   navigation: any,
