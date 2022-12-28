@@ -2,7 +2,7 @@ import { useIsFocused } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { ScrollView,  } from 'react-native-gesture-handler';
 import { FAB, List, Portal, RadioButton, TextInput} from 'react-native-paper';
-import { styles } from '../../../styles/Styles';
+import { styles } from '../../styles/Styles';
 
 interface IInterviewScreenProps {
   navigation: any,

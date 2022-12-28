@@ -13,7 +13,7 @@ import ExaminationScreen from './frontend/components/screens/Examination';
 import MenuIcon from './frontend/menu/MenuIcon';
 import MenuContent from './frontend/menu/MenuContent';
 import {FAB, Provider} from 'react-native-paper';
-import { styles } from './styles/Styles';
+import { styles } from './frontend/styles/Styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default function App() {
