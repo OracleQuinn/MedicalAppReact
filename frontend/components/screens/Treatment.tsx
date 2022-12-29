@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native';
 import { FAB, Portal } from 'react-native-paper';
 import { styles } from '../../styles/Styles';
-import { EmsDrugs, getEmsDrugs } from '../../utils/get-ems-drugs';
+import { getEmsDrugs } from '../../utils/api/get-ems-drugs';
 import MultiSelect from 'react-native-multiple-select';
 
 interface ITreatmentScreenProps {
@@ -26,8 +26,6 @@ const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({naviga
   const onSelectedItemsChange = (selectedItems: any[]) => {
     setSelectedItems(selectedItems);
   }
-
-  //TO DO: rozwijalna lista leków na cały ekran.
   
   return (
     <SafeAreaView>

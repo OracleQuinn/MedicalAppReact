@@ -2,15 +2,16 @@ import collections
 from flask import Flask, jsonify
 import mysql.connector
 from flask_ngrok import run_with_ngrok
+import os
 
 app = Flask(__name__)
 run_with_ngrok(app)
 
 connection = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='',
-    database='medical_app'
+    host=os.environ.get('DB_HOST'),
+    user=os.environ.get('DB_USER'),
+    password=os.environ.get('DB_PASSWORD'),
+    database=os.environ.get('DB_DATABASE'),
 )
 
 cursor = connection.cursor()
