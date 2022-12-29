@@ -1,8 +1,8 @@
 import { useIsFocused } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { ScrollView,  } from 'react-native-gesture-handler';
 import { FAB, List, Portal, RadioButton, TextInput} from 'react-native-paper';
-import { styles } from '../../styles/Styles';
+import { styles } from '../styles/Styles';
+import { ScrollView } from 'react-native';
 
 interface IInterviewScreenProps {
   navigation: any,
@@ -16,7 +16,7 @@ const InterviewScreen: React.FunctionComponent<IInterviewScreenProps> = ({ navig
   const isScreenFocused = useIsFocused();
 
   return (
-    <ScrollView keyboardDismissMode='on-drag'>
+    <ScrollView>
       <List.AccordionGroup>
         <List.Accordion title="Miejsce zdarzenia" id="1" theme={{ colors: { primary: 'dodgerblue' }}} >
           <RadioButton.Group onValueChange={newValue => setAccidentPlace(newValue)} value={accidentPlace}>
@@ -34,8 +34,10 @@ const InterviewScreen: React.FunctionComponent<IInterviewScreenProps> = ({ navig
         <List.Accordion title="Przyjmowane leki" id="3" theme={{ colors: { primary: 'dodgerblue' }}}>
           <TextInput mode='outlined' label='Przyjmowane leki...' multiline={true} onChangeText={text => setMedicines(text)} value={medicines} activeOutlineColor="dodgerblue" />
         </List.Accordion>
+        <List.Accordion title="Dodatkowe uwagi" id="4" theme={{ colors: { primary: 'dodgerblue' }}}>
+          <TextInput mode='outlined' label='Dodatkowe uwagii...' multiline={true} onChangeText={text => setNotes(text)} value={notes} activeOutlineColor="dodgerblue" />
+        </List.Accordion>
       </List.AccordionGroup>
-      <TextInput mode='outlined' label='Dodatkowe uwagii...' multiline={true} onChangeText={text => setNotes(text)} value={notes} activeOutlineColor="dodgerblue" />
       <Portal>
         <FAB icon="check" style={styles.fab} onPress={() => navigation.navigate("Badanie")} visible={isScreenFocused}/>
       </Portal>

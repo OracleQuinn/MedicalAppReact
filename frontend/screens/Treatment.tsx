@@ -2,8 +2,8 @@ import { useIsFocused } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native';
 import { FAB, Portal } from 'react-native-paper';
-import { styles } from '../../styles/Styles';
-import { getEmsDrugs } from '../../utils/api/get-ems-drugs';
+import { styles } from '../styles/Styles';
+import { EmsDrugs, getEmsDrugs } from '../utils/api/get-ems-drugs';
 import MultiSelect from 'react-native-multiple-select';
 
 interface ITreatmentScreenProps {
@@ -12,8 +12,8 @@ interface ITreatmentScreenProps {
 
 const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({navigation}) => {
   const isScreenFocused = useIsFocused();
-  const [selectedItems, setSelectedItems] = useState<any>([]);
-  const [medicines, setMedicines] = useState<any[]>();
+  const [selectedItems, setSelectedItems] = useState<any[]>([]);
+  const [medicines, setMedicines] = useState<EmsDrugs[]>();
 
   useEffect(() => {
     async function fetch() {

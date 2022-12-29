@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { FAB, Portal, TextInput } from 'react-native-paper';
 import RNPickerSelect from 'react-native-picker-select';
-import { styles } from '../../styles/Styles';
-import { GenderEnum, NFZDepartmentEnum } from '../../utils/types/enums';
-import { Gender, NFZDepartment } from '../../utils/types/labels';
+import { styles } from '../styles/Styles';
+import { GenderEnum, NFZDepartmentEnum } from '../utils/types/enums';
+import { Gender, NFZDepartment } from '../utils/types/labels';
 
 interface IPatientDataScreenProps {
 }

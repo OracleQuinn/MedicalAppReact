@@ -17,9 +17,17 @@ connection = mysql.connector.connect(
 cursor = connection.cursor()
 
 @app.route('/api/ems/drugs', methods=['GET'])
-def get_data():
+def get_ems_drugs():
     cursor.execute('SELECT * FROM medical_app.ems_drugs')
     Drug = collections.namedtuple("Drug", ["id", "latin_name", "name"])
+    data = cursor.fetchall()
+    drugs = [Drug(*drug)._asdict() for drug in data]
+    return drugs
+
+@app.route('/api/drugs', methods=['GET'])
+def get_all_drugs():
+    cursor.execute("SELECT * FROM medical_app.all_drugs WHERE type = 'Ludzki'")
+    Drug = collections.namedtuple("Drug", ["id", "name", "used_name", "type", "previous_name", "target_species", "power", "pharmaceutical_form", "active_substance"])
     data = cursor.fetchall()
     drugs = [Drug(*drug)._asdict() for drug in data]
     return drugs

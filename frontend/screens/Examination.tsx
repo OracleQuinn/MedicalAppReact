@@ -3,7 +3,7 @@ import React from 'react';
 import {ScrollView, View} from 'react-native';
 import {FAB, List, Portal} from 'react-native-paper';
 import SelectDropdown from 'react-native-select-dropdown';
-import { styles } from '../../styles/Styles';
+import { styles } from '../styles/Styles';
 
 interface IExaminationScreenProps {
   navigation: any,
