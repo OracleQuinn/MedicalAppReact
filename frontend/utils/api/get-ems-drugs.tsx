@@ -5,6 +5,8 @@ export interface EmsDrugs {
     id: number,
     name: string,
     latin_name: string,
+    dose?: string,
+    route?: string,
 }
 
 export async function getEmsDrugs(){

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, View } from 'react-native';
 import { TextInput, FAB, List, Portal } from 'react-native-paper';
 import { styles } from '../styles/Styles';
 import { EmsDrugs, getEmsDrugs } from '../utils/api/get-ems-drugs';
@@ -13,13 +13,14 @@ interface ITreatmentScreenProps {
 
 const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({navigation}) => {
   const isScreenFocused = useIsFocused();
-  const [selectedMedicines, setSelectedMedicines] = useState<any[]>([]);
+  const [selectedMedicines, setSelectedMedicines] = useState<EmsDrugs[]>([]);
   const [medicines, setMedicines] = useState<EmsDrugs[]>();
   const [selectedOperations, setSelectedOperations] = useState<string[]>([]);
   const [otherOperations, setOtherOperations] = useState<string>('');
   const [otherSelected, setOtherSelected] = useState(false);
   const [recommendations, setRecommendations] = useState<string>('');
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [doseByOption, setDoseByOption] = useState({});
 
   useEffect(() => {
     async function fetch() {
@@ -29,12 +30,16 @@ const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({naviga
     fetch();
   }, []);
 
-  const onSlectedMedicinesChange = (option: string) => {
+  const onSlectedMedicinesChange = (option: EmsDrugs) => {
     if (selectedMedicines.includes(option)) {
       setSelectedMedicines(selectedMedicines.filter((o) => o !== option));
     } else {
       setSelectedMedicines([...selectedMedicines, option]);
     }
+  };
+
+  const onSlectedMedicinesDoseChange = (option: EmsDrugs, dose: string) => {
+    setDoseByOption({ ...doseByOption, [option.id]: dose });
   };
 
   const onSlectedOperationsChange = (operation: string, other: boolean) => {
@@ -46,7 +51,7 @@ const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({naviga
       newOptions.push(operation);
     }
     setSelectedOperations(newOptions);
-  }
+  };
   
   return (
     <SafeAreaView>
@@ -71,8 +76,11 @@ const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({naviga
               onChangeText={setSearchTerm}
               value={searchTerm}
             />
-            {medicines && medicines.filter((option) => option.latin_name.toLowerCase().includes(searchTerm.toLowerCase())).map((option) => (
-              <CheckBox title={option.latin_name} key={option.id} checked={selectedMedicines.includes(option)} onPress={() => onSlectedMedicinesChange(option.latin_name)}/>
+            {medicines && medicines.filter((option, i) => option.latin_name.toLowerCase().includes(searchTerm.toLowerCase())).map((option) => (
+              <View key={option.id}>
+                <CheckBox title={option.latin_name} key={option.id + 'id'} checked={selectedMedicines.includes(option)} onPress={() => onSlectedMedicinesChange(option)}/>
+                {selectedMedicines.includes(option) && <TextInput mode='outlined' label='Dawka' activeOutlineColor="dodgerblue" value={doseByOption[option.id] || ''} onChangeText={(dose) => onSlectedMedicinesDoseChange(option, dose)}/>}
+              </View>
             ))}
           </List.Accordion>
           <List.Accordion title="Zalecenia i uwagi" id="3" theme={{ colors: { primary: 'dodgerblue' }}} >
@@ -86,4 +94,5 @@ const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({naviga
     </SafeAreaView>
   );
 };
+
 export default TreatmentScreen;
