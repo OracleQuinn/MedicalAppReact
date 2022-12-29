@@ -21,3 +21,28 @@ export const NFZDepartment = [
     {label: 'Wielkopolski Oddział NFZ w Poznaniu', value: "015"},
     {label: 'Zachodniopomorski Oddział NFZ w Szczecinie', value: "016"},
 ]
+
+export const RescueOperations = [
+    'odsysanie',
+    'wentylacja workiem',
+    'rurka UG',
+    'intubacja',
+    'respirator',
+    'defibrylacja',
+    'stymulacja zewnętrzna',
+    'kardiowersja',
+    'masaż serca',
+    'EKG',
+    'kołnierz',
+    'deska ortopedyczna',
+    'materac próżniowy',
+    'unieruchomienie',
+    'opatrunek',
+    'cewnikowanie żył obwodowych',
+    'kaniula centralna',
+    'cewnikowanie',
+    'sonda żołądkowa',
+    'monitorowanie',
+    'tlenoterapia bierna',
+    'teletransmisja',
+]
