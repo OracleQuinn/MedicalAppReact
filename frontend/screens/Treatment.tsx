@@ -7,11 +7,11 @@ import { CheckBox } from 'react-native-elements';
 import { RescueOperations } from '../utils/types/labels';
 import { useIsFocused } from '@react-navigation/native';
 
-interface IDiagnosisTreatmentScreenProps {
+interface ITreatmentScreenProps {
   navigation: any,
 }
 
-const DiagnosisTreatmentScreen: React.FunctionComponent<IDiagnosisTreatmentScreenProps> = ({navigation}) => {
+const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({navigation}) => {
   const isScreenFocused = useIsFocused();
   const [selectedMedicines, setSelectedMedicines] = useState<any[]>([]);
   const [medicines, setMedicines] = useState<EmsDrugs[]>();
@@ -65,9 +65,9 @@ const DiagnosisTreatmentScreen: React.FunctionComponent<IDiagnosisTreatmentScree
                 <TextInput mode='outlined' label='Wpisz wartość' activeOutlineColor="dodgerblue" value={otherOperations} onChangeText={(text: string) => onSlectedOperationsChange(text, true)}/>
             )}
           </List.Accordion>
-          <List.Accordion title="Podane leki" id="2" theme={{ colors: { primary: 'dodgerblue' }}} >
+          <List.Accordion title="Zastosowane wyroby medyczne" id="2" theme={{ colors: { primary: 'dodgerblue' }}} >
             <TextInput
-              placeholder="Search options"
+              placeholder="Wpisz nazwę leku"
               onChangeText={setSearchTerm}
               value={searchTerm}
             />
@@ -75,7 +75,7 @@ const DiagnosisTreatmentScreen: React.FunctionComponent<IDiagnosisTreatmentScree
               <CheckBox title={option.latin_name} key={option.id} checked={selectedMedicines.includes(option)} onPress={() => onSlectedMedicinesChange(option.latin_name)}/>
             ))}
           </List.Accordion>
-          <List.Accordion title="Zalecenia / uwagi kierownika zespołu" id="3" theme={{ colors: { primary: 'dodgerblue' }}} >
+          <List.Accordion title="Zalecenia i uwagi" id="3" theme={{ colors: { primary: 'dodgerblue' }}} >
             <TextInput mode='outlined' onChangeText={text => setRecommendations(text)} value={recommendations} activeOutlineColor="dodgerblue" />
           </List.Accordion>
         </List.AccordionGroup>
@@ -86,4 +86,4 @@ const DiagnosisTreatmentScreen: React.FunctionComponent<IDiagnosisTreatmentScree
     </SafeAreaView>
   );
 };
-export default DiagnosisTreatmentScreen;
+export default TreatmentScreen;

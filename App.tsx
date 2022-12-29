@@ -12,7 +12,8 @@ import MenuIcon from './frontend/menu/MenuIcon';
 import MenuContent from './frontend/menu/MenuContent';
 import {Provider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
-import DiagnosisTreatmentScreen from './frontend/screens/DiagnosisTreatment';
+import DiagnosisScreen from './frontend/screens/Diagnosis';
+import TreatmentScreen from './frontend/screens/Treatment';
 
 export default function App() {
   const Drawer = createDrawerNavigator();
@@ -25,8 +26,9 @@ export default function App() {
               <Drawer.Screen name='Strona Główna' component={HomeScreen} options={{drawerIcon: config => <Icon size={23} name="md-home-outline"></Icon>}} />
               <Drawer.Screen name='Wywiad' component={InterviewScreen} options={{drawerIcon: config => <Icon size={23} name="medical-outline"></Icon>}} />
               <Drawer.Screen name='Badanie' component={ExaminationScreen} options={{drawerIcon: config => <Icon size={23} name="pulse-outline"></Icon>}} />
-              <Drawer.Screen name='Rozpoznanie i Postępowanie' component={DiagnosisTreatmentScreen} options={{drawerIcon: config => <Icon size={23} name="bandage-outline"></Icon>}} />
-              <Drawer.Screen name='Przekazanie' component={TransferScreen} options={{drawerIcon: config => <Icon size={23} name="medkit-outline"></Icon>}} />
+              <Drawer.Screen name='Rozpoznanie' component={DiagnosisScreen} options={{drawerIcon: config => <Icon size={23} name="bandage-outline"></Icon>}} />
+              <Drawer.Screen name='Postępowanie' component={TreatmentScreen} options={{drawerIcon: config => <Icon size={23} name="medkit-outline"></Icon>}} />
+              <Drawer.Screen name='Przekazanie' component={TransferScreen} options={{drawerIcon: config => <Icon size={23} name="bed-outline"></Icon>}} />
               <Drawer.Screen name='Dane pacjenta' component={PatientDataScreen} options={{drawerIcon: config => <Icon size={23} name="person-outline"></Icon>}} />
             </Drawer.Navigator>
           </NavigationContainer>

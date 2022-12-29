@@ -8,7 +8,7 @@ import {
 const MenuContent: React.FunctionComponent<DrawerContentComponentProps> = (props) => {
   return (
     <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
+      <DrawerItemList {...props}/>
     </DrawerContentScrollView>
   );
 };
