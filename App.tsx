@@ -3,18 +3,17 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 import {StatusBar} from 'expo-status-bar';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import HomeScreen from './components/screens/Home';
-import InterviewScreen from './components/screens/Interview';
-import TransferScreen from './components/screens/Transfer';
-import PatientDataScreen from './components/screens/PatientData';
-import TreatmentScreen from './components/screens/Treatment';
-import DiagnosisScreen from './components/screens/Diagnosis';
-import ExaminationScreen from './components/screens/Examination';
-import MenuIcon from './components/menu/MenuIcon';
-import MenuContent from './components/menu/MenuContent';
-import {FAB, Provider} from 'react-native-paper';
-import { styles } from './styles/Styles';
+import HomeScreen from './frontend/screens/Home';
+import InterviewScreen from './frontend/screens/Interview';
+import TransferScreen from './frontend/screens/Transfer';
+import PatientDataScreen from './frontend/screens/PatientData';
+import ExaminationScreen from './frontend/screens/Examination';
+import MenuIcon from './frontend/menu/MenuIcon';
+import MenuContent from './frontend/menu/MenuContent';
+import {Provider} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
+import DiagnosisScreen from './frontend/screens/Diagnosis';
+import TreatmentScreen from './frontend/screens/Treatment';
 
 export default function App() {
   const Drawer = createDrawerNavigator();

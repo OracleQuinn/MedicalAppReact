@@ -18,4 +18,14 @@ export const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
   },
+
+  dropDown: {
+    width: '100%',
+    marginTop: 4,
+    borderWidth: 1,
+    borderColor: 'grey',
+    borderRadius: 4,
+    alignContent: 'center',
+    justifyContent: 'center',
+  }
 });
