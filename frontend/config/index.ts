@@ -3,5 +3,5 @@ export interface Config {
 }
 
 export const config: Config = {
-    website: 'https://5815-2a02-a317-a036-9e00-904f-29b-e4e2-3a46.eu.ngrok.io'
+    website: 'https://43aa-2a02-a317-a03e-3a00-5cb1-4f33-c151-e0cd.eu.ngrok.io'
 }

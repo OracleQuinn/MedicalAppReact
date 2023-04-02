@@ -1,0 +1,1 @@
+export type DoseByOption = { [key: number]: string };

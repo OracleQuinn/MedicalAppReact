@@ -6,6 +6,7 @@ import { EmsDrugs, getEmsDrugs } from '../utils/api/get-ems-drugs';
 import { CheckBox } from 'react-native-elements';
 import { RescueOperations } from '../utils/types/labels';
 import { useIsFocused } from '@react-navigation/native';
+import { DoseByOption } from '../utils/types/types';
 
 interface ITreatmentScreenProps {
   navigation: any,
@@ -20,7 +21,7 @@ const TreatmentScreen: React.FunctionComponent<ITreatmentScreenProps> = ({naviga
   const [otherSelected, setOtherSelected] = useState(false);
   const [recommendations, setRecommendations] = useState<string>('');
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [doseByOption, setDoseByOption] = useState({});
+  const [doseByOption, setDoseByOption] = useState<DoseByOption>({});
 
   useEffect(() => {
     async function fetch() {

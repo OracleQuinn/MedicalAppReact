@@ -46,3 +46,51 @@ export const RescueOperations = [
     'tlenoterapia bierna',
     'teletransmisja',
 ]
+
+export const eyeOpening = [
+    {label: "brak", value: 1}, 
+    {label: "na ból", value: 2}, 
+    {label: "na głos", value: 3}, 
+    {label: "spontanicznie", value: 4}
+];
+
+export const verbalReaction = [
+    {label: "brak", value: 1}, 
+    {label: "niezrozumiałe dźwięki", value: 2}, 
+    {label: "niewłaściwe słowa", value: 3}, 
+    {label: "splątany", value: 4}, 
+    {label: "zorientowany", value: 5}
+];
+
+export const movementReaction = [
+    {label: "brak", value: 1}, 
+    {label: "wyprostna", value: 2}, 
+    {label: "zgięciowa", value: 3}, 
+    {label: "ucieczka od bólu", value: 4}, 
+    {label: "lokalizacja bólu", value: 5}, 
+    {label: "wykonuje polecenia", value: 6}
+]
+
+export const respiratoryRate = [
+    {label: "brak", value: 0}, 
+    {label: "1 - 5", value: 1}, 
+    {label: "6 - 9", value: 2}, 
+    {label: "> 29", value: 3}, 
+    {label: "10 - 29", value: 4}
+]
+
+export const systolicRp = [
+    {label: "0", value: 0}, 
+    {label: "1 - 49", value: 1}, 
+    {label: "50 - 75", value: 2}, 
+    {label: "76 - 89", value: 3}, 
+    {label: "> 89", value: 4}
+]
+
+export const gcs = [
+    {label: "3", value: 0}, 
+    {label: "4 - 5", value: 1}, 
+    {label: "6 - 8", value: 2}, 
+    {label: "9 - 12", value: 3}, 
+    {label: "13 - 15", value: 4}
+]
