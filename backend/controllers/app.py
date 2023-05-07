@@ -24,6 +24,29 @@ connection = mysql.connector.connect(
 
 cursor = connection.cursor()
 
+def encode_password(password):
+    """Encode the password using MD5"""
+    md5_hash = hashlib.md5()
+    md5_hash.update(password.encode('utf-8'))
+    return md5_hash.hexdigest()
+
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.json  # Assuming you're sending a JSON payload containing username and password
+    username = data.get('username')
+    password = data.get('password')
+    encoded_password = encode_password(password)
+
+    # Check if the username and encoded password match in the database
+    cursor.execute('SELECT COUNT(*) FROM users WHERE username=%s AND password=%s', (username, encoded_password))
+    result = cursor.fetchone()
+    count = result[0]
+
+    if count == 1:
+        return jsonify({'success': True, 'message': 'Login successful!'})
+    else:
+        return jsonify({'success': False, 'message': 'Invalid username or password.'})
+
 @app.route('/api/ems/drugs', methods=['GET'])
 def get_ems_drugs():
     cursor.execute('SELECT * FROM medical_app.ems_drugs')
